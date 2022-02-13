@@ -13,7 +13,8 @@
 		CC8EB10027B7A51A0076609D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC8EB0FF27B7A51A0076609D /* Assets.xcassets */; };
 		CC8EB10327B7A51A0076609D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC8EB10127B7A51A0076609D /* LaunchScreen.storyboard */; };
 		CCF5550627B7B4F0000131D1 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF5550527B7B4F0000131D1 /* ProfileViewController.swift */; };
-		CCF5550827B7B55D000131D1 /* NewslineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF5550727B7B55D000131D1 /* NewslineViewController.swift */; };
+		CCF5550827B7B55D000131D1 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF5550727B7B55D000131D1 /* FeedViewController.swift */; };
+		CCF5550A27B8BA6B000131D1 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF5550927B8BA6B000131D1 /* PostViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +26,8 @@
 		CC8EB10227B7A51A0076609D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CC8EB10427B7A51A0076609D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CCF5550527B7B4F0000131D1 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		CCF5550727B7B55D000131D1 /* NewslineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewslineViewController.swift; sourceTree = "<group>"; };
+		CCF5550727B7B55D000131D1 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		CCF5550927B8BA6B000131D1 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,7 +67,8 @@
 				CC8EB10127B7A51A0076609D /* LaunchScreen.storyboard */,
 				CC8EB10427B7A51A0076609D /* Info.plist */,
 				CCF5550527B7B4F0000131D1 /* ProfileViewController.swift */,
-				CCF5550727B7B55D000131D1 /* NewslineViewController.swift */,
+				CCF5550727B7B55D000131D1 /* FeedViewController.swift */,
+				CCF5550927B8BA6B000131D1 /* PostViewController.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -144,7 +147,8 @@
 				CCF5550627B7B4F0000131D1 /* ProfileViewController.swift in Sources */,
 				CC8EB0FB27B7A5170076609D /* ViewController.swift in Sources */,
 				CC8EB0F727B7A5170076609D /* AppDelegate.swift in Sources */,
-				CCF5550827B7B55D000131D1 /* NewslineViewController.swift in Sources */,
+				CCF5550827B7B55D000131D1 /* FeedViewController.swift in Sources */,
+				CCF5550A27B8BA6B000131D1 /* PostViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

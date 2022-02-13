@@ -18,10 +18,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
 //        let newslineItem = UITabBarItem()
 //        newslineItem.title = "1ЛЕНТА"
-        let newsline = NewslineViewController()
-        newsline.view.backgroundColor = .systemBackground
-        newsline.title = "ЛЕНТА"
-        let newslineNavigationController = UINavigationController(rootViewController: newsline)
+        let feed = FeedViewController()
+        feed.view.backgroundColor = .systemBackground
+        feed.title = "Feed"
+        let newslineNavigationController = UINavigationController(rootViewController: feed)
 //        newsline.tabBarItem = newslineItem
         
         let iconConfig = UIImage.SymbolConfiguration(scale: .large)
@@ -32,7 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        profileItem.title = "1ПРОФИЛЬ"
         let profile = ProfileViewController()
         profile.view.backgroundColor = .systemBackground
-        profile.title = "ПРОФИЛЬ"
+        profile.title = "Profile"
         let profileNavigationController = UINavigationController(rootViewController: profile)
 //        profile.tabBarItem = profileItem
         

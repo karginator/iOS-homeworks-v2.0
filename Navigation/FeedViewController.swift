@@ -7,7 +7,7 @@
 
 import UIKit
 
-class NewslineViewController: UIViewController {
+class FeedViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
