@@ -14,11 +14,12 @@ class PostViewController: UIViewController {
         view.backgroundColor = .systemYellow
         self.title = post.title
         
-        let infoBarButtonItem = UIBarButtonItem(barButtonSystemItem: .rewind, target: self, action: #selector(tap))
+        let infoBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(tap))
         navigationItem.rightBarButtonItem = infoBarButtonItem
     }
     
     @objc func tap() {
         let infoBBI = InfoViewController()
+        self.present(infoBBI, animated: true, completion: nil)
     }
 }
