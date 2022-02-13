@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        let newslineItem = UITabBarItem()
 //        newslineItem.title = "1ЛЕНТА"
         let feed = FeedViewController()
-        feed.view.backgroundColor = .systemBackground
+        feed.view.backgroundColor = .systemCyan
         feed.title = "Feed"
         let newslineNavigationController = UINavigationController(rootViewController: feed)
 //        newsline.tabBarItem = newslineItem
@@ -31,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        let profileItem = UITabBarItem()
 //        profileItem.title = "1ПРОФИЛЬ"
         let profile = ProfileViewController()
-        profile.view.backgroundColor = .systemBackground
+        profile.view.backgroundColor = .systemMint
         profile.title = "Profile"
         let profileNavigationController = UINavigationController(rootViewController: profile)
 //        profile.tabBarItem = profileItem
