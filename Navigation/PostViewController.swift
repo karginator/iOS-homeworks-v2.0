@@ -11,7 +11,7 @@ class PostViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemYellow
+        view.backgroundColor = .systemOrange
         self.title = post.title
         
         let infoBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(tap))
