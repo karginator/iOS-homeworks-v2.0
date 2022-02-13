@@ -16,31 +16,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window = UIWindow()
         
-//        let newslineItem = UITabBarItem()
-//        newslineItem.title = "1ЛЕНТА"
         let feed = FeedViewController()
-        feed.view.backgroundColor = .systemCyan
+        feed.view.backgroundColor = .systemBackground
         feed.title = "Feed"
-        let newslineNavigationController = UINavigationController(rootViewController: feed)
-//        newsline.tabBarItem = newslineItem
+        let feedNavigationController = UINavigationController(rootViewController: feed)
         
         let iconConfig = UIImage.SymbolConfiguration(scale: .large)
-        let newslineGearIcon = UIImage(systemName: "house.fill", withConfiguration: iconConfig)
-        newslineNavigationController.tabBarItem.image = newslineGearIcon
+        let feedIcon = UIImage(systemName: "house.fill", withConfiguration: iconConfig)
+        feedNavigationController.tabBarItem.image = feedIcon
         
-//        let profileItem = UITabBarItem()
-//        profileItem.title = "1ПРОФИЛЬ"
         let profile = ProfileViewController()
-        profile.view.backgroundColor = .systemMint
+        profile.view.backgroundColor = .systemBackground
         profile.title = "Profile"
         let profileNavigationController = UINavigationController(rootViewController: profile)
-//        profile.tabBarItem = profileItem
         
-        let profileGearIcon = UIImage(systemName: "person.fill", withConfiguration: iconConfig)
-        profileNavigationController.tabBarItem.image = profileGearIcon
+        let profileIcon = UIImage(systemName: "person.fill", withConfiguration: iconConfig)
+        profileNavigationController.tabBarItem.image = profileIcon
         
         let tabBarController = UITabBarController()
-        tabBarController.viewControllers = [newslineNavigationController, profileNavigationController]
+        tabBarController.viewControllers = [feedNavigationController, profileNavigationController]
         
         window?.rootViewController = tabBarController
         window?.makeKeyAndVisible()
