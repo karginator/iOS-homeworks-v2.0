@@ -1,0 +1,25 @@
+//
+//  PostViewController.swift
+//  Navigation
+//
+//  Created by Maksim Kargin on 13.02.2022.
+//
+
+import UIKit
+
+class PostViewController: UIViewController {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .systemOrange
+        self.title = post.title
+        
+        let infoBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(tap))
+        navigationItem.rightBarButtonItem = infoBarButtonItem
+    }
+    
+    @objc func tap() {
+        let infoBBI = InfoViewController()
+        self.present(infoBBI, animated: true, completion: nil)
+    }
+}
