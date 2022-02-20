@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         feedNavigationController.tabBarItem.image = feedIcon
         
         let profile = ProfileViewController()
-        profile.view.backgroundColor = .systemBackground
+        profile.view.backgroundColor = .lightGray
         profile.title = "Profile"
         let profileNavigationController = UINavigationController(rootViewController: profile)
         
