@@ -11,6 +11,10 @@ class ProfileViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        let profileHeaderView = ProfileHeaderView()
+        self.view.addSubview(profileHeaderView)
+    }
+    override func viewWillLayoutSubviews() {
+        self.view.subviews.first?.frame = self.view.frame
     }
 }
