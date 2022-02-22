@@ -11,11 +11,15 @@ class ProfileHeaderView: UIView {
     
     var userFoto: UIImageView
     var userName: UILabel
+    var userStatus: UILabel
+    var statusButton: UIButton
     
     init() {
         
         userFoto = UIImageView(image: UIImage(named: "lenin"))
         userName = UILabel()
+        userStatus = UILabel()
+        statusButton = UIButton()
         super.init(frame: CGRect())
         
         userFoto.translatesAutoresizingMaskIntoConstraints = false
@@ -30,6 +34,26 @@ class ProfileHeaderView: UIView {
         userName.textColor = .black
         userName.font = UIFont.systemFont(ofSize: 18, weight: .bold)
         self.addSubview(userName)
+        
+        userStatus.translatesAutoresizingMaskIntoConstraints = false
+        userStatus.text = "Waiting for something..."
+        userStatus.textColor = .gray
+        userStatus.font = UIFont.systemFont(ofSize: 14, weight: .regular)
+        self.addSubview(userStatus)
+        
+        statusButton.translatesAutoresizingMaskIntoConstraints = false
+        statusButton.setTitle("Show status", for: .normal)
+        statusButton.setTitleColor(.white, for: .normal)
+        statusButton.backgroundColor = .blue
+        statusButton.layer.cornerRadius = 4
+        statusButton.layer.shadowColor = UIColor.black.cgColor
+        statusButton.layer.shadowOffset = CGSize(width: 4, height: 4)
+        statusButton.layer.shadowOpacity = 0.7
+        statusButton.layer.shadowRadius = 4
+        statusButton.addTarget(self, action: #selector(pressStatusButton), for: .touchUpInside)
+
+        self.addSubview(statusButton)
+        
     }
     
     required init?(coder: NSCoder) {
@@ -51,7 +75,19 @@ class ProfileHeaderView: UIView {
             
             userName.leftAnchor.constraint(equalTo: userFoto.rightAnchor, constant: 20),
             userName.topAnchor.constraint(equalTo: self.topAnchor, constant: 27),
-            userName.rightAnchor.constraint(greaterThanOrEqualTo: self.rightAnchor, constant: -16)
+            userName.rightAnchor.constraint(greaterThanOrEqualTo: self.rightAnchor, constant: -16),
+            
+            userStatus.leftAnchor.constraint(equalTo: userFoto.rightAnchor, constant: 20),
+            userStatus.rightAnchor.constraint(greaterThanOrEqualTo: self.rightAnchor, constant: -16),
+            userStatus.bottomAnchor.constraint(equalTo: userName.bottomAnchor, constant: 50),
+            
+            statusButton.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 16),
+            statusButton.rightAnchor.constraint(greaterThanOrEqualTo: self.rightAnchor, constant: -16),
+            statusButton.topAnchor.constraint(equalTo: userFoto.bottomAnchor, constant: 16),
+            statusButton.heightAnchor.constraint(equalToConstant: 50)
             ])
+    }
+    @objc func pressStatusButton() {
+        print(userStatus.text!)
     }
 }
