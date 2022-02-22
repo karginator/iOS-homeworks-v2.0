@@ -16,10 +16,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window = UIWindow()
         
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = .white
+        
         let feed = FeedViewController()
-        feed.view.backgroundColor = .systemBackground
+        feed.view.backgroundColor = .systemGray2
         feed.title = "Feed"
         let feedNavigationController = UINavigationController(rootViewController: feed)
+        feedNavigationController.navigationBar.standardAppearance = appearance
+        feedNavigationController.navigationBar.scrollEdgeAppearance = feedNavigationController.navigationBar.standardAppearance
         
         let iconConfig = UIImage.SymbolConfiguration(scale: .large)
         let feedIcon = UIImage(systemName: "house.fill", withConfiguration: iconConfig)
@@ -29,11 +35,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         profile.view.backgroundColor = .lightGray
         profile.title = "Profile"
         let profileNavigationController = UINavigationController(rootViewController: profile)
+        profileNavigationController.navigationBar.standardAppearance = appearance
+        profileNavigationController.navigationBar.scrollEdgeAppearance = profileNavigationController.navigationBar.standardAppearance
         
         let profileIcon = UIImage(systemName: "person.fill", withConfiguration: iconConfig)
         profileNavigationController.tabBarItem.image = profileIcon
         
         let tabBarController = UITabBarController()
+//        tabBarController.tabBar.isHidden = false
+        tabBarController.tabBar.backgroundColor = .white
         tabBarController.viewControllers = [feedNavigationController, profileNavigationController]
         
         window?.rootViewController = tabBarController
