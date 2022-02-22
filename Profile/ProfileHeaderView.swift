@@ -10,10 +10,12 @@ import UIKit
 class ProfileHeaderView: UIView {
     
     var userFoto: UIImageView
+    var userName: UILabel
     
     init() {
         
         userFoto = UIImageView(image: UIImage(named: "lenin"))
+        userName = UILabel()
         super.init(frame: CGRect())
         
         userFoto.translatesAutoresizingMaskIntoConstraints = false
@@ -22,6 +24,12 @@ class ProfileHeaderView: UIView {
         userFoto.clipsToBounds = true
         userFoto.layer.borderColor = CGColor(red: 255, green: 255, blue: 255, alpha: 1)
         self.addSubview(userFoto)
+        
+        userName.translatesAutoresizingMaskIntoConstraints = false
+        userName.text = "Vladimir Lenin"
+        userName.textColor = .black
+        userName.font = UIFont.systemFont(ofSize: 18, weight: .bold)
+        self.addSubview(userName)
     }
     
     required init?(coder: NSCoder) {
@@ -39,7 +47,11 @@ class ProfileHeaderView: UIView {
             userFoto.widthAnchor.constraint(equalToConstant: 100),
             userFoto.heightAnchor.constraint(equalTo: userFoto.widthAnchor),
             userFoto.topAnchor.constraint(equalTo: self.topAnchor, constant: 16),
-            userFoto.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 16)
+            userFoto.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 16),
+            
+            userName.leftAnchor.constraint(equalTo: userFoto.rightAnchor, constant: 20),
+            userName.topAnchor.constraint(equalTo: self.topAnchor, constant: 27),
+            userName.rightAnchor.constraint(greaterThanOrEqualTo: self.rightAnchor, constant: -16)
             ])
     }
 }
