@@ -15,6 +15,7 @@ class ProfileViewController: UIViewController {
         profileHeaderView.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(profileHeaderView)
     }
+    
     override func viewWillLayoutSubviews() {
         self.view.subviews.first?.frame = self.view.frame
     }

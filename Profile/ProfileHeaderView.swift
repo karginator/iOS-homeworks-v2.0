@@ -13,6 +13,8 @@ class ProfileHeaderView: UIView {
     var userName: UILabel
     var userStatus: UILabel
     var statusButton: UIButton
+    var statusTextField: UITextField
+    private var statusText: String
     
     init() {
         
@@ -20,6 +22,8 @@ class ProfileHeaderView: UIView {
         userName = UILabel()
         userStatus = UILabel()
         statusButton = UIButton()
+        statusTextField = UITextField()
+        statusText = ""
         super.init(frame: CGRect())
         
         userFoto.translatesAutoresizingMaskIntoConstraints = false
@@ -42,7 +46,7 @@ class ProfileHeaderView: UIView {
         self.addSubview(userStatus)
         
         statusButton.translatesAutoresizingMaskIntoConstraints = false
-        statusButton.setTitle("Show status", for: .normal)
+        statusButton.setTitle("Set status", for: .normal)
         statusButton.setTitleColor(.white, for: .normal)
         statusButton.backgroundColor = .blue
         statusButton.layer.cornerRadius = 4
@@ -50,10 +54,22 @@ class ProfileHeaderView: UIView {
         statusButton.layer.shadowOffset = CGSize(width: 4, height: 4)
         statusButton.layer.shadowOpacity = 0.7
         statusButton.layer.shadowRadius = 4
-        statusButton.addTarget(self, action: #selector(pressStatusButton), for: .touchUpInside)
-
+        statusButton.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
         self.addSubview(statusButton)
         
+        statusTextField.translatesAutoresizingMaskIntoConstraints = false
+        statusTextField.font = UIFont.systemFont(ofSize: 15, weight: .regular)
+        statusTextField.placeholder = "Waiting for something..."
+        statusTextField.textColor = .black
+        statusTextField.backgroundColor = .white
+//        statusTextField.textAlignment = .natural
+        statusTextField.layer.cornerRadius = 12
+        statusTextField.layer.borderWidth = 1
+        statusTextField.layer.borderColor = CGColor(red: 0, green: 0, blue: 0, alpha: 1)
+        statusTextField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: statusTextField.frame.height))
+        statusTextField.leftViewMode = .always
+        statusTextField.addTarget(self, action: #selector(statusTextChanged), for: .editingChanged)
+        self.addSubview(statusTextField)
     }
     
     required init?(coder: NSCoder) {
@@ -79,15 +95,34 @@ class ProfileHeaderView: UIView {
             
             userStatus.leftAnchor.constraint(equalTo: userFoto.rightAnchor, constant: 20),
             userStatus.rightAnchor.constraint(greaterThanOrEqualTo: self.rightAnchor, constant: -16),
-            userStatus.bottomAnchor.constraint(equalTo: userName.bottomAnchor, constant: 50),
+            userStatus.bottomAnchor.constraint(equalTo: userName.bottomAnchor, constant: 30),
             
             statusButton.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 16),
             statusButton.rightAnchor.constraint(greaterThanOrEqualTo: self.rightAnchor, constant: -16),
             statusButton.topAnchor.constraint(equalTo: userFoto.bottomAnchor, constant: 16),
-            statusButton.heightAnchor.constraint(equalToConstant: 50)
+            statusButton.heightAnchor.constraint(equalToConstant: 50),
+            
+            statusTextField.leftAnchor.constraint(equalTo: userFoto.rightAnchor, constant: 20),
+            statusTextField.bottomAnchor.constraint(equalTo: statusButton.topAnchor, constant: -10),
+            statusTextField.rightAnchor.constraint(greaterThanOrEqualTo: self.rightAnchor, constant: -16),
+            statusTextField.heightAnchor.constraint(equalToConstant: 40)
             ])
     }
-    @objc func pressStatusButton() {
-        print(userStatus.text!)
+    
+    @objc func buttonPressed() {
+        userStatus.text = statusText
+        if let textUserStatus = userStatus.text {
+            print(textUserStatus)
+        }
+    }
+        
+    @objc func statusTextChanged(_ textField: UITextField) {
+        if let statusTextOpt = statusTextField.text {
+            statusText = statusTextOpt
+        }
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.endEditing(true)
     }
 }

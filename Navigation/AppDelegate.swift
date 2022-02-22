@@ -42,7 +42,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         profileNavigationController.tabBarItem.image = profileIcon
         
         let tabBarController = UITabBarController()
-//        tabBarController.tabBar.isHidden = false
         tabBarController.tabBar.backgroundColor = .white
         tabBarController.viewControllers = [feedNavigationController, profileNavigationController]
         
