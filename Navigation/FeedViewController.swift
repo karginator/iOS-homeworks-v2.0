@@ -20,7 +20,9 @@ class FeedViewController: UIViewController {
         
         let postButton = UIButton(frame: CGRect(x: 0, y: 100, width: 100, height: 50))
         postButton.setTitle("Post", for: .normal)
-        postButton.setTitleColor(.systemGray, for: .normal)
+        postButton.backgroundColor = .white
+        postButton.layer.cornerRadius = 4
+        postButton.setTitleColor(.black, for: .normal)
         postButton.addTarget(self, action: #selector(tap), for: .touchUpInside)
         view.addSubview(postButton)
     }
