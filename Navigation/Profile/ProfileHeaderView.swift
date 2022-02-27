@@ -9,6 +9,8 @@ import UIKit
 
 class ProfileHeaderView: UIView {
     
+    var titleeee = ""
+    
     var avatarImageView: UIImageView = {
         let imageView = UIImageView(image: UIImage(named: "lenin"))
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -42,7 +44,7 @@ class ProfileHeaderView: UIView {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Set status", for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = .blue
+        button.backgroundColor = #colorLiteral(red: 0.05408742279, green: 0.4763534069, blue: 0.9996182323, alpha: 1)
         button.layer.cornerRadius = 4
         button.layer.shadowColor = UIColor.black.cgColor
         button.layer.shadowOffset = CGSize(width: 4, height: 4)
@@ -53,24 +55,39 @@ class ProfileHeaderView: UIView {
     } ()
     
     var statusTextField: UITextField = {
-        let statusTextField = UITextField()
-        statusTextField.translatesAutoresizingMaskIntoConstraints = false
-        statusTextField.font = UIFont.systemFont(ofSize: 15, weight: .regular)
-        statusTextField.placeholder = "Waiting for something..."
-        statusTextField.textColor = .black
-        statusTextField.backgroundColor = .white
-        statusTextField.layer.cornerRadius = 12
-        statusTextField.layer.borderWidth = 1
-        statusTextField.layer.borderColor = CGColor(red: 0, green: 0, blue: 0, alpha: 1)
-        statusTextField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: statusTextField.frame.height))
-        statusTextField.leftViewMode = .always
-        statusTextField.addTarget(self, action: #selector(statusTextChanged), for: .editingChanged)
-        return statusTextField
+        let textField = UITextField()
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.font = UIFont.systemFont(ofSize: 15, weight: .regular)
+        textField.placeholder = "Waiting for something..."
+        textField.textColor = .black
+        textField.backgroundColor = .white
+        textField.layer.cornerRadius = 12
+        textField.layer.borderWidth = 1
+        textField.layer.borderColor = CGColor(red: 0, green: 0, blue: 0, alpha: 1)
+        textField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: textField.frame.height))
+        textField.leftViewMode = .always
+        textField.addTarget(self, action: #selector(statusTextChanged), for: .editingChanged)
+        return textField
     } ()
     
     private var statusText: String = {
         let statusText = ""
         return statusText
+    } ()
+    
+    var titleButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Set title", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.backgroundColor = #colorLiteral(red: 0.05408742279, green: 0.4763534069, blue: 0.9996182323, alpha: 1)
+        button.layer.cornerRadius = 4
+        button.layer.shadowColor = UIColor.black.cgColor
+        button.layer.shadowOffset = CGSize(width: 4, height: 4)
+        button.layer.shadowOpacity = 0.7
+        button.layer.shadowRadius = 4
+        button.addTarget(self, action: #selector(setTitle), for: .touchUpInside)
+        return button
     } ()
     
     init() {
@@ -80,6 +97,7 @@ class ProfileHeaderView: UIView {
         self.addSubview(statusLabel)
         self.addSubview(setStatusButton)
         self.addSubview(statusTextField)
+        self.addSubview(titleButton)
     }
     
     required init?(coder: NSCoder) {
@@ -91,6 +109,7 @@ class ProfileHeaderView: UIView {
         if let textUserStatus = statusLabel.text {
             print(textUserStatus)
         }
+        statusTextField.text = ""
     }
         
     @objc func statusTextChanged(_ textField: UITextField) {
@@ -103,7 +122,7 @@ class ProfileHeaderView: UIView {
         self.endEditing(true)
     }
     
-    func test() {
+    func profileHeaderViewConstraintFunc() {
     
         self.translatesAutoresizingMaskIntoConstraints = false
         
@@ -136,6 +155,16 @@ class ProfileHeaderView: UIView {
         statusTextField.bottomAnchor.constraint(equalTo: setStatusButton.topAnchor, constant: -10).isActive = true
         statusTextField.rightAnchor.constraint(greaterThanOrEqualTo: self.rightAnchor, constant: -16).isActive = true
         statusTextField.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        
+        titleButton.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
+        titleButton.rightAnchor.constraint(greaterThanOrEqualTo: self.rightAnchor).isActive = true
+        titleButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: 520).isActive = true
+        titleButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+    }
+    
+    @objc func setTitle() {
+        titleeee = fullNameLabel.text!
+        print("new title \(titleeee)")
     }
 }
 

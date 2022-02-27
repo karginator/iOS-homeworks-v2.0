@@ -62,7 +62,6 @@
 		CC8EB0F527B7A5170076609D /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
-				CCE266EF27C2397100D66658 /* Profile */,
 				CC8EB0F627B7A5170076609D /* AppDelegate.swift */,
 				CC8EB0FA27B7A5170076609D /* ViewController.swift */,
 				CC8EB0FF27B7A51A0076609D /* Assets.xcassets */,
@@ -71,6 +70,7 @@
 				CCF5550727B7B55D000131D1 /* FeedViewController.swift */,
 				CCF5550927B8BA6B000131D1 /* PostViewController.swift */,
 				CCF9497527B92760005B2038 /* InfoViewController.swift */,
+				CCE266EF27C2397100D66658 /* Profile */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
