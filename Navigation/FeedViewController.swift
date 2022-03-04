@@ -20,7 +20,7 @@ class FeedViewController: UIViewController {
 
         let stackView: UIStackView = {
             let stackView = UIStackView()
-            stackView.translatesAutoresizingMaskIntoConstraints = false
+            stackView.toAutoLayout()
             stackView.axis = .vertical
             stackView.spacing = 10
             stackView.distribution = .fillEqually
