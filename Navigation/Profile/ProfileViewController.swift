@@ -7,19 +7,9 @@
 
 import UIKit
 
-public extension UIView {
-    
-    func toAutoLayout() {
-        translatesAutoresizingMaskIntoConstraints = false
-    }
-    
-    func addSubviews(_ subviews: UIView...) {
-        subviews.forEach { addSubview($0) }
-    }
-}
-
 class ProfileViewController: UIViewController {
     
+    var isLogin = true
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +22,9 @@ class ProfileViewController: UIViewController {
     }
     
     override func viewWillLayoutSubviews() {
-        self.view.subviews.first?.frame = self.view.frame
+        if isLogin {
+            isLogin = !isLogin
+            navigationController?.pushViewController(LogInViewController(), animated: true)
+        }
     }
 }
