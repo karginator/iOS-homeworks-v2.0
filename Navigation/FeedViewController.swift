@@ -7,11 +7,11 @@
 
 import UIKit
 
-struct Post {
+struct PostForTitle {
     let title: String
 }
 
-let post = Post(title: "Post")
+let postTitle = PostForTitle(title: "Post")
 
 class FeedViewController: UIViewController {
 
@@ -25,7 +25,7 @@ class FeedViewController: UIViewController {
             stackView.spacing = 10
             stackView.distribution = .fillEqually
             stackView.alignment = .fill
-            stackView.backgroundColor = .systemGray2
+            stackView.backgroundColor = .systemGray6
             return stackView
         } ()
         view.addSubview(stackView)

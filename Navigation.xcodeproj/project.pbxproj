@@ -12,6 +12,7 @@
 		CC8EB10027B7A51A0076609D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC8EB0FF27B7A51A0076609D /* Assets.xcassets */; };
 		CC8EB10327B7A51A0076609D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC8EB10127B7A51A0076609D /* LaunchScreen.storyboard */; };
 		CCB6450227D234620069DB58 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB6450127D234620069DB58 /* LogInViewController.swift */; };
+		CCB6450427D9D2630069DB58 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB6450327D9D2630069DB58 /* PostTableViewCell.swift */; };
 		CCE266F127C2399C00D66658 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE266F027C2399C00D66658 /* ProfileHeaderView.swift */; };
 		CCF5550627B7B4F0000131D1 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF5550527B7B4F0000131D1 /* ProfileViewController.swift */; };
 		CCF5550827B7B55D000131D1 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF5550727B7B55D000131D1 /* FeedViewController.swift */; };
@@ -27,6 +28,7 @@
 		CC8EB10227B7A51A0076609D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CC8EB10427B7A51A0076609D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CCB6450127D234620069DB58 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		CCB6450327D9D2630069DB58 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		CCE266F027C2399C00D66658 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		CCF5550527B7B4F0000131D1 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		CCF5550727B7B55D000131D1 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				CCF5550527B7B4F0000131D1 /* ProfileViewController.swift */,
+				CCB6450327D9D2630069DB58 /* PostTableViewCell.swift */,
 				CCE266F027C2399C00D66658 /* ProfileHeaderView.swift */,
 				CCB6450127D234620069DB58 /* LogInViewController.swift */,
 			);
@@ -165,6 +168,7 @@
 				CCE266F127C2399C00D66658 /* ProfileHeaderView.swift in Sources */,
 				CCF9497627B92760005B2038 /* InfoViewController.swift in Sources */,
 				CCF5550A27B8BA6B000131D1 /* PostViewController.swift in Sources */,
+				CCB6450427D9D2630069DB58 /* PostTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

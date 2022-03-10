@@ -106,7 +106,6 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     }()
     
     func logInViewConstraintFunc() {
-        
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),

@@ -18,7 +18,9 @@ public extension UIView {
     }
 }
 
-class ProfileHeaderView: UIView {
+class ProfileHeaderView: UITableViewHeaderFooterView {
+    
+    static let identifire = "ProfileHeaderView"
     
     var title = ""
     
@@ -81,34 +83,42 @@ class ProfileHeaderView: UIView {
         return textField
     } ()
     
+    func profileHeaderViewConstraintFunc() {
+        NSLayoutConstraint.activate([
+            avatarImageView.widthAnchor.constraint(equalToConstant: 100),
+            avatarImageView.heightAnchor.constraint(equalTo: avatarImageView.widthAnchor),
+            avatarImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 16),
+            avatarImageView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 16),
+            
+            fullNameLabel.leftAnchor.constraint(equalTo: avatarImageView.rightAnchor, constant: 20),
+            fullNameLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 27),
+            fullNameLabel.rightAnchor.constraint(greaterThanOrEqualTo: self.rightAnchor, constant: -16),
+            
+            statusLabel.leftAnchor.constraint(equalTo: avatarImageView.rightAnchor, constant: 20),
+            statusLabel.rightAnchor.constraint(greaterThanOrEqualTo: self.rightAnchor, constant: -16),
+            statusLabel.bottomAnchor.constraint(equalTo: fullNameLabel.bottomAnchor, constant: 30),
+            
+            setStatusButton.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 16),
+            setStatusButton.rightAnchor.constraint(greaterThanOrEqualTo: self.rightAnchor, constant: -16),
+            setStatusButton.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: 16),
+            setStatusButton.heightAnchor.constraint(equalToConstant: 50),
+            
+            statusTextField.leftAnchor.constraint(equalTo: avatarImageView.rightAnchor, constant: 20),
+            statusTextField.bottomAnchor.constraint(equalTo: setStatusButton.topAnchor, constant: -10),
+            statusTextField.rightAnchor.constraint(greaterThanOrEqualTo: self.rightAnchor, constant: -16),
+            statusTextField.heightAnchor.constraint(equalToConstant: 40),
+        ])
+    }
+    
     private var statusText: String = {
         let statusText = ""
         return statusText
     } ()
     
-    var titleButton: UIButton = {
-        let button = UIButton()
-        button.toAutoLayout()
-        button.setTitle("Set title", for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = #colorLiteral(red: 0.05408742279, green: 0.4763534069, blue: 0.9996182323, alpha: 1)
-        button.layer.cornerRadius = 4
-        button.layer.shadowColor = UIColor.black.cgColor
-        button.layer.shadowOffset = CGSize(width: 4, height: 4)
-        button.layer.shadowOpacity = 0.7
-        button.layer.shadowRadius = 4
-        button.addTarget(self, action: #selector(setTitle), for: .touchUpInside)
-        return button
-    } ()
-    
-    init() {
-        super.init(frame: CGRect())
-        self.addSubview(avatarImageView)
-        self.addSubview(fullNameLabel)
-        self.addSubview(statusLabel)
-        self.addSubview(setStatusButton)
-        self.addSubview(statusTextField)
-        self.addSubview(titleButton)
+    override init(reuseIdentifier: String?) {
+        super.init(reuseIdentifier: reuseIdentifier)
+        contentView.addSubviews(avatarImageView, fullNameLabel, statusLabel, setStatusButton, statusTextField)
+        profileHeaderViewConstraintFunc()
     }
     
     required init?(coder: NSCoder) {
@@ -131,48 +141,6 @@ class ProfileHeaderView: UIView {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.endEditing(true)
-    }
-    
-    func profileHeaderViewConstraintFunc() {
-    
-        self.toAutoLayout()
-        
-        guard let letSuperView = superview else { return }
-        
-        NSLayoutConstraint.activate([
-        self.leftAnchor.constraint(equalTo: letSuperView.leftAnchor),
-        self.rightAnchor.constraint(equalTo: letSuperView.rightAnchor),
-        self.topAnchor.constraint(equalTo: letSuperView.safeAreaLayoutGuide.topAnchor),
-        self.heightAnchor.constraint(equalToConstant: 220),
-        
-        avatarImageView.widthAnchor.constraint(equalToConstant: 100),
-        avatarImageView.heightAnchor.constraint(equalTo: avatarImageView.widthAnchor),
-        avatarImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 16),
-        avatarImageView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 16),
-        
-        fullNameLabel.leftAnchor.constraint(equalTo: avatarImageView.rightAnchor, constant: 20),
-        fullNameLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 27),
-        fullNameLabel.rightAnchor.constraint(greaterThanOrEqualTo: self.rightAnchor, constant: -16),
-        
-        statusLabel.leftAnchor.constraint(equalTo: avatarImageView.rightAnchor, constant: 20),
-        statusLabel.rightAnchor.constraint(greaterThanOrEqualTo: self.rightAnchor, constant: -16),
-        statusLabel.bottomAnchor.constraint(equalTo: fullNameLabel.bottomAnchor, constant: 30),
-        
-        setStatusButton.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 16),
-        setStatusButton.rightAnchor.constraint(greaterThanOrEqualTo: self.rightAnchor, constant: -16),
-        setStatusButton.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: 16),
-        setStatusButton.heightAnchor.constraint(equalToConstant: 50),
-        
-        statusTextField.leftAnchor.constraint(equalTo: avatarImageView.rightAnchor, constant: 20),
-        statusTextField.bottomAnchor.constraint(equalTo: setStatusButton.topAnchor, constant: -10),
-        statusTextField.rightAnchor.constraint(greaterThanOrEqualTo: self.rightAnchor, constant: -16),
-        statusTextField.heightAnchor.constraint(equalToConstant: 40),
-        
-        titleButton.leftAnchor.constraint(equalTo: self.leftAnchor),
-        titleButton.rightAnchor.constraint(greaterThanOrEqualTo: self.rightAnchor),
-        titleButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: 520),
-        titleButton.heightAnchor.constraint(equalToConstant: 50)
-        ])
     }
     
     @objc func setTitle() {
