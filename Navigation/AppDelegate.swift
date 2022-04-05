@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         appearance.backgroundColor = .white
         
         let feed = FeedViewController()
-        feed.view.backgroundColor = .systemGray2
+        feed.view.backgroundColor = .systemGray6
         feed.title = "Feed"
         let feedNavigationController = UINavigationController(rootViewController: feed)
         feedNavigationController.navigationBar.standardAppearance = appearance
@@ -32,7 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         feedNavigationController.tabBarItem.image = feedIcon
         
         let profile = ProfileViewController()
-        profile.view.backgroundColor = .lightGray
+        profile.view.backgroundColor = .systemGray6
         profile.title = "Profile"
         let profileNavigationController = UINavigationController(rootViewController: profile)
         profileNavigationController.navigationBar.standardAppearance = appearance
